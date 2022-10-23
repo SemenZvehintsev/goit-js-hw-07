@@ -1,10 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 
 class Gallery {
-    constructor({preview, original, description}) {
-        this.preview = preview;
-        this.original = original;
-        this.description = description;
+    constructor(images) {
+        this.images = images;
         this.fullGallery = document.querySelector('.gallery');
     }
 
@@ -14,7 +12,7 @@ class Gallery {
     }
 
     createGallery() {
-        galleryItems.forEach(({preview, original, description}) => {
+        this.images.forEach(({preview, original, description}) => {
         this.fullGallery.insertAdjacentHTML("afterbegin", 
         `<div class="gallery__item">
         <a class="gallery__link" href="${original}">
